@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Form, Input, Button, Select, Col, Result } from "antd";
+import { Form, Input, Button, Select, Col } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.css";
 import { useHistory } from "react-router-dom";
@@ -10,6 +10,7 @@ import useLogin from "../../Mutations/useLogin";
 const { Option } = Select;
 
 const Login = () => {
+
   const history = useHistory();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +23,8 @@ const Login = () => {
     history.push("/Home");
   }, [setAuthorizedValue, history, selectedUserLevel]);
 
-  const { mutate: login } = useLogin({ email: username, password }, handleSuccessLogin, (error) => console.log("error >>", error));
+  const { mutate: login } = useLogin({ email: username, password,selectedUserLevel }, 
+    handleSuccessLogin, (error) => console.log("error >>", error));
 
   const onFinish = (values) => {
     console.log("Received values of form: ", values);
@@ -66,15 +68,6 @@ const Login = () => {
 
   console.log("Ini data", data);
   console.log("INI ROLE", selectedUserLevel);
-
-  // const onFinish = (values) => {
-  //   console.log("Received values of form: ", values);
-  // };
-
-  // const handleSubmit = useCallback(() => {
-  //   setAuthorizedValue(true, selectedUserLevel);
-  //   history.push("/Home");
-  // }, [setAuthorizedValue, history, selectedUserLevel]);
 
   return (
     <div className="outer-login">
@@ -148,7 +141,9 @@ const Login = () => {
                 justifyContent: "center",
               }}
             >
-              <Button className="btn-login" onClick={login}>
+              <Button className="btn-login" 
+              onClick={login}
+              >
                 Login
               </Button>
 

@@ -1,13 +1,15 @@
 import React from "react";
-import { Row, Col, Form, Button, Select, InputNumber, Input } from "antd";
+import { Row, Col, Form, Button, Select, InputNumber, Input, Spin, Typography} from "antd";
 import DataAlamat from "./DataAlamat";
 import JenisTransaksi from "./DataJenisTransaksi";
 import useCreateTransaction from "../../Mutations/useCreateTransaction";
 import NavbarComponent from "../../assets/components/navbar/NavbarComponent";
 import { useHistory } from "react-router-dom";
 import "./TransaksiPage.css";
+import { AiOutlineBorder } from "react-icons/ai";
  
 const { Option } = Select;
+const {Text} = Typography;
  
 const TransaksiPage = () => {
   const [selectedProvinsi, setSelectedProvinsi] = React.useState(null);
@@ -25,7 +27,7 @@ const TransaksiPage = () => {
     status: "0",
   });
  
-  const { mutate } = useCreateTransaction(formState, (result) => {
+  const { mutate, isLoading, isError } = useCreateTransaction(formState, (result) => {
     console.log("success mutation >> ", result);
     history.replace("/home");
   });
@@ -234,7 +236,31 @@ const TransaksiPage = () => {
             </Col>
           </Row>
           <Row justify="center">
-            <Button
+            { isLoading ?(
+              <Spin/>
+            ) : isError ? (
+              <div >
+                <Row>
+                  <Text style={{color:'red'}}> Gagal Memuat data</Text>
+                </Row>
+                <Row justify="space-around" align="middle">
+                  <Button
+                    type="primary"
+                    className="searching-agent"
+                    style={{
+                      paddingRight: "15px",
+                      marginTop: "50px",
+                      backgroundColor:'#ff9800',
+                      color:"white"
+                    }}
+                    onClick={mutate}
+                  >
+                    Coba Lagi
+                  </Button>
+
+                </Row>             
+            </div>
+            ) : (<Button
               type="primary"
               className="searching-agent"
               style={{
@@ -244,7 +270,8 @@ const TransaksiPage = () => {
               onClick={mutate}
             >
               Cari Agen
-            </Button>
+            </Button>)}
+
           </Row>
         </div>
       </div>

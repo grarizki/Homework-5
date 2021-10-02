@@ -22,7 +22,7 @@ const useLogin = (loginData, onSuccess, onError) => {
       
       cookies.set('accessToken', result.accessToken, { path: '/' });
      
-      return response.json();
+      return result;
     },
     { onError, onSuccess }
   );
