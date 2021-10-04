@@ -15,7 +15,7 @@ import { useHistory } from "react-router-dom"
 import DataAlamat from "./DataAlamat"
 import JenisTransaksi from "./DataJenisTransaksi"
 import useCreateTransaction from "../../Mutations/useCreateTransaction"
-import NavbarComponent from "../../components/navbar/NavbarComponent"
+import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
 import "./TransaksiPage.css"
 import { AiOutlineBorder } from "react-icons/ai"
 
