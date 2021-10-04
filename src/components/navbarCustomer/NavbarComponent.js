@@ -4,8 +4,8 @@ import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import { Link } from "react-router-dom"
 
-import { SidebarData } from "../sidebar/SidebarData"
-import "../navbar/navbar.css"
+import { SidebarData } from "../sidebarCustomer/SidebarData"
+import "./navbar.css"
 import Logo from "../../assets/image/BRI-AJ-v2.png"
 
 function NavbarComponent() {
