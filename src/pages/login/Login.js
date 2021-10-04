@@ -1,38 +1,40 @@
-import React, { useState, useCallback } from "react";
-import { Form, Input, Button, Select, Col } from "antd";
-import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import "./login.css";
-import { useHistory } from "react-router-dom";
-import BRI from "../../assets/image/BRI2.png";
-import { useAuthorizedContext } from "../../AuthorizedContext";
-import useLogin from "../../Mutations/useLogin";
+import React, { useState, useCallback } from "react"
+import { Form, Input, Button, Select, Col } from "antd"
+import { UserOutlined, LockOutlined } from "@ant-design/icons"
+import "./login.css"
+import { useHistory } from "react-router-dom"
+import BRI from "../../assets/image/BRI2.png"
+import { useAuthorizedContext } from "../../AuthorizedContext"
+import useLogin from "../../Mutations/useLogin"
 
-const { Option } = Select;
+const { Option } = Select
 
 const Login = () => {
-
-  const history = useHistory();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [data, setData] = useState({});
-  const [selectedUserLevel, setSelectedUserLevel] = useState("customer");
-  const { setAuthorizedValue } = useAuthorizedContext();
+  const history = useHistory()
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+  const [data, setData] = useState({})
+  const [selectedUserLevel, setSelectedUserLevel] = useState("customer")
+  const { setAuthorizedValue } = useAuthorizedContext()
 
   const handleSuccessLogin = useCallback(() => {
-    setAuthorizedValue(true, selectedUserLevel);
-    history.push("/Home");
-  }, [setAuthorizedValue, history, selectedUserLevel]);
+    setAuthorizedValue(true, selectedUserLevel)
+    history.push("/home")
+  }, [setAuthorizedValue, history, selectedUserLevel])
 
-  const { mutate: login } = useLogin({ email: username, password,selectedUserLevel }, 
-    handleSuccessLogin, (error) => console.log("error >>", error));
+  const { mutate: login } = useLogin(
+    { email: username, password, selectedUserLevel },
+    handleSuccessLogin,
+    (error) => console.log("error >>", error)
+  )
 
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
-  };
+    console.log("Received values of form: ", values)
+  }
 
   const handleSelectedUserLevel = useCallback((value) => {
-    setSelectedUserLevel(`${value}`);
-  }, []);
+    setSelectedUserLevel(`${value}`)
+  }, [])
 
   const UserType = [
     {
@@ -45,29 +47,29 @@ const Login = () => {
       value: "agent",
       label: "Agent",
     },
-  ];
+  ]
 
   const handleChange = useCallback(
     (e) => {
-      const name = e.target.name;
-      const value = e.target.value;
+      const name = e.target.name
+      const value = e.target.value
       switch (name) {
         case "username":
-          setUsername(value);
-          setData({ ...data, [name]: value });
-          break;
+          setUsername(value)
+          setData({ ...data, [name]: value })
+          break
         case "password":
-          setPassword(value);
-          setData({ ...data, [name]: value });
-          break;
+          setPassword(value)
+          setData({ ...data, [name]: value })
+          break
         default:
       }
     },
     [data]
-  );
+  )
 
-  console.log("Ini data", data);
-  console.log("INI ROLE", selectedUserLevel);
+  console.log("Ini data", data)
+  console.log("INI ROLE", selectedUserLevel)
 
   return (
     <div className="outer-login">
@@ -96,7 +98,13 @@ const Login = () => {
               },
             ]}
           >
-            <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" name="username" value={username} onChange={handleChange} />
+            <Input
+              prefix={<UserOutlined className="site-form-item-icon" />}
+              placeholder="Username"
+              name="username"
+              value={username}
+              onChange={handleChange}
+            />
           </Form.Item>
           <Form.Item
             labelCol={{ span: 6 }}
@@ -110,7 +118,14 @@ const Login = () => {
               },
             ]}
           >
-            <Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password" name="password" value={password} onChange={handleChange} />
+            <Input
+              prefix={<LockOutlined className="site-form-item-icon" />}
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
           </Form.Item>
           <Form.Item
             labelCol={{ span: 6 }}
@@ -123,7 +138,11 @@ const Login = () => {
               },
             ]}
           >
-            <Select defaultValue={selectedUserLevel} name="login_as" onChange={handleSelectedUserLevel}>
+            <Select
+              defaultValue={selectedUserLevel}
+              name="login_as"
+              onChange={handleSelectedUserLevel}
+            >
               {UserType.map((option) => (
                 <Option key={option.key} value={option.value} label={option.label}>
                   {option.label}
@@ -141,9 +160,7 @@ const Login = () => {
                 justifyContent: "center",
               }}
             >
-              <Button className="btn-login" 
-              onClick={login}
-              >
+              <Button className="btn-login" onClick={login}>
                 Login
               </Button>
 
@@ -155,7 +172,7 @@ const Login = () => {
         </Form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

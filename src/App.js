@@ -4,8 +4,8 @@ import TransaksiPage from "./pages/Transaksi/TransaksiPage"
 import Login from "./pages/login/Login"
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import Home from "./pages/Home/Home"
-import Logout from "./pages/Status/Logout"
+import home from "./pages/Home/Home"
+import logout from "./pages/Status/Logout"
 import AuthorizedRoute from "./AuthorizedRoute"
 import RestrictedWrapper from "./RestrictedWrapper"
 import { AuthorizedContextProvider } from "./AuthorizedContext"
@@ -31,12 +31,12 @@ function App() {
               </RestrictedWrapper>
             </Route>
             <AuthorizedRoute
-              path="/Transaksi"
+              path="/transaksi"
               exact
               component={TransaksiPage}
             ></AuthorizedRoute>
-            <Route path="/Signout" exact component={Logout} />
-            <AuthorizedRoute path="/Home" exact component={Home}></AuthorizedRoute>
+            <Route path="/signout" exact component={logout} />
+            <AuthorizedRoute path="/home" exact component={home}></AuthorizedRoute>
           </Switch>
         </Router>
       </AuthorizedContextProvider>
