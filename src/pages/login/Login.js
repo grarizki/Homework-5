@@ -1,8 +1,9 @@
 import React, { useState, useCallback } from "react"
 import { Form, Input, Button, Select, Col } from "antd"
 import { UserOutlined, LockOutlined } from "@ant-design/icons"
-import "./login.css"
 import { useHistory } from "react-router-dom"
+
+import "./login.css"
 import BRI from "../../assets/image/BRI2.png"
 import { useAuthorizedContext } from "../../AuthorizedContext"
 import useLogin from "../../Mutations/useLogin"

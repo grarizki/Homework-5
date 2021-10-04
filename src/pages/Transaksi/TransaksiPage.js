@@ -10,11 +10,12 @@ import {
   Spin,
   Typography,
 } from "antd"
+import { useHistory } from "react-router-dom"
+
 import DataAlamat from "./DataAlamat"
 import JenisTransaksi from "./DataJenisTransaksi"
 import useCreateTransaction from "../../Mutations/useCreateTransaction"
 import NavbarComponent from "../../components/navbar/NavbarComponent"
-import { useHistory } from "react-router-dom"
 import "./TransaksiPage.css"
 import { AiOutlineBorder } from "react-icons/ai"
 

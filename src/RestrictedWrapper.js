@@ -1,31 +1,30 @@
-import React from "react";
-import { Route, useHistory } from "react-router-dom";
-import { useAuthorizedContext } from "./AuthorizedContext";
-import Cookies from "universal-cookie";
+import React from "react"
+import { Route, useHistory } from "react-router-dom"
+import Cookies from "universal-cookie"
 
+import { useAuthorizedContext } from "./AuthorizedContext"
 
-const cookies =  new Cookies()
+const cookies = new Cookies()
 
 const RestrictedWrapper = (props) => {
-  const { isLoggedIn, setAuthorizedValue} = useAuthorizedContext();
-  const history = useHistory();
+  const { isLoggedIn, setAuthorizedValue } = useAuthorizedContext()
+  const history = useHistory()
 
-const accessToken = cookies.get("accessToken")
+  const accessToken = cookies.get("accessToken")
 
   React.useEffect(() => {
     if (isLoggedIn) {
-      history.push("/home");
+      history.push("/home")
     }
-  }, [isLoggedIn, history]);
-
+  }, [isLoggedIn, history])
 
   React.useEffect(() => {
-   if(accessToken) {
-     setAuthorizedValue(true)
-   }
+    if (accessToken) {
+      setAuthorizedValue(true)
+    }
   }, [accessToken, isLoggedIn])
 
-  return isLoggedIn ? null : props.children;
-};
+  return isLoggedIn ? null : props.children
+}
 
-export default RestrictedWrapper;
+export default RestrictedWrapper

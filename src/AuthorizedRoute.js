@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, useHistory } from "react-router-dom";
+
 import { useAuthorizedContext } from "./AuthorizedContext";
 
 const AuthorizedRoute = (props) => {

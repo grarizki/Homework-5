@@ -1,10 +1,11 @@
 import React, { useState } from "react"
+import { IconContext } from "react-icons"
 import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import { Link } from "react-router-dom"
+
 import { SidebarData } from "../sidebar/SidebarData"
 import "../navbar/navbar.css"
-import { IconContext } from "react-icons"
 import Logo from "../../assets/image/BRI-AJ-v2.png"
 
 function NavbarComponent() {
