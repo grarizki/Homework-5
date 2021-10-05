@@ -1,6 +1,11 @@
 import React, { useState, useCallback } from "react"
 import { Form, Input, Button, Select, Col } from "antd"
-import { UserOutlined, LockOutlined } from "@ant-design/icons"
+import {
+  UserOutlined,
+  LockOutlined,
+  EyeInvisibleOutlined,
+  EyeTwoTone,
+} from "@ant-design/icons"
 import { useHistory } from "react-router-dom"
 
 import "./login.sass"
@@ -119,13 +124,16 @@ const Login = () => {
               },
             ]}
           >
-            <Input
+            <Input.Password
               prefix={<LockOutlined className="site-form-item-icon" />}
               type="password"
               placeholder="Password"
               name="password"
               value={password}
               onChange={handleChange}
+              iconRender={(visible) =>
+                visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+              }
             />
           </Form.Item>
           <Form.Item
