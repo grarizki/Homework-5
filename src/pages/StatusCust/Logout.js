@@ -3,7 +3,7 @@ import { Modal, Button } from "antd"
 import Cookies from "universal-cookie"
 
 import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
-import "../Status/logout.sass"
+import "./logout.sass"
 
 const cookies = new Cookies()
 
