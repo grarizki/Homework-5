@@ -1,5 +1,16 @@
 import React, { useCallback } from "react"
-import { Row, Col, Form, Input, Button, Card, Typography, Spin, Space } from "antd"
+import {
+  Row,
+  Col,
+  Form,
+  Input,
+  Button,
+  Card,
+  Typography,
+  Spin,
+  Space,
+  Alert,
+} from "antd"
 import moment from "moment"
 
 import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
@@ -135,7 +146,7 @@ function Home() {
                 />
               ))
             ) : (
-              <Text>Gagal Memuat Data</Text>
+              <Alert message="Gagal Memuat Data" type="error" />
             )}
           </Space>
         </div>
