@@ -4,7 +4,7 @@ import * as FaIcons from "react-icons/fa"
 import * as AiIcons from "react-icons/ai"
 import { Link } from "react-router-dom"
 
-import { SidebarData } from "../sidebarCustomer/SidebarData"
+import { SidebarData } from "../sidebarAgent/sidebarDataAgent"
 import "./navbar.sass"
 import Logo from "../../assets/image/BRI-AJ-v2.png"
 

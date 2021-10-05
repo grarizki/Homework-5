@@ -16,7 +16,7 @@ import DataAlamat from "./DataAlamat"
 import JenisTransaksi from "./DataJenisTransaksi"
 import useCreateTransaction from "../../Mutations/useCreateTransaction"
 import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
-import "./TransaksiPage.css"
+import "./transaksipage.sass"
 import { AiOutlineBorder } from "react-icons/ai"
 
 const { Option } = Select

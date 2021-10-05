@@ -6,7 +6,7 @@ import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
 import { useAuthorizedContext } from "../../AuthorizedContext"
 import useGetTransaction from "../../Query/useGetTransaction"
 import useDeleteTransaction from "../../Mutations/useDeleteTransaction"
-import "./Home.css"
+import "./Home.sass"
 
 const { Title, Text } = Typography
 

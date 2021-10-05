@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "react-query"
 import React from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import "./App.css"
+import "./App.sass"
 import TransaksiPage from "./pages/Transaksi/TransaksiPage"
 import Login from "./pages/login/Login"
 import home from "./pages/Home/Home"

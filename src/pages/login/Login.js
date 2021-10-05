@@ -3,7 +3,7 @@ import { Form, Input, Button, Select, Col } from "antd"
 import { UserOutlined, LockOutlined } from "@ant-design/icons"
 import { useHistory } from "react-router-dom"
 
-import "./login.css"
+import "./login.sass"
 import BRI from "../../assets/image/BRI2.png"
 import { useAuthorizedContext } from "../../AuthorizedContext"
 import useLogin from "../../Mutations/useLogin"
