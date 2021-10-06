@@ -32,9 +32,9 @@ const CardTransactionComponent = (props) => {
     deleteTransaction()
   }, [props.transaction.id, deleteTransaction])
 
-//   const handleAcceptTransaction = useCallback(() => {
-//     AcceptTransaction()
-//   }, [props.transaction.id, acceptTransaction])
+  //   const handleAcceptTransaction = useCallback(() => {
+  //     AcceptTransaction()
+  //   }, [props.transaction.id, acceptTransaction])
 
   return (
     <Card title=" ">
@@ -88,11 +88,11 @@ const CardTransactionComponent = (props) => {
             <Text>
               :{" "}
               {props.transaction.status === "0"
-                ? "Menunggu konfirmasi agen"
+                ? "Menunggu konfirmasi Anda"
                 : props.transaction.status === "1"
-                ? "Agen dalam perjalanan"
+                ? "Dalam perjalanan"
                 : props.transaction.status === "2"
-                ? "Dibatalkan agen"
+                ? "Dibatalkan"
                 : props.transaction.status === "3"
                 ? "Selesai"
                 : "Error"}
@@ -102,36 +102,35 @@ const CardTransactionComponent = (props) => {
 
         <div className="float-right">
           <Row>
-          <Space direction = "horizontal" size="middle">
-          <Button
-            type="primary"
-            style={{
-              margin: "0px",
-              paddingRight: "15px",
-              backgroundColor: "#F03D3E",
-              fontWeight: "bold",
-              borderRadius: "10px",
-            }}
-            onClick={handleCancelTransaction}
-          >
-            Tolak
-          </Button>
-          <Button
-            type="primary"
-            style={{
-              margin: "0px",
-              paddingRight: "15px",
-              backgroundColor: "#84ed50",
-              fontWeight: "bold",
-              borderRadius: "10px",
-            }}
-            onClick={handleCancelTransaction}
-          >
-            Terima
-          </Button>
-          </Space>
+            <Space direction="horizontal" size="middle">
+              <Button
+                type="primary"
+                style={{
+                  margin: "0px",
+                  paddingRight: "15px",
+                  backgroundColor: "#F03D3E",
+                  fontWeight: "bold",
+                  borderRadius: "10px",
+                }}
+                onClick={handleCancelTransaction}
+              >
+                Tolak
+              </Button>
+              <Button
+                type="primary"
+                style={{
+                  margin: "0px",
+                  paddingRight: "15px",
+                  backgroundColor: "#84ed50",
+                  fontWeight: "bold",
+                  borderRadius: "10px",
+                }}
+                onClick={handleCancelTransaction}
+              >
+                Terima
+              </Button>
+            </Space>
           </Row>
-          
         </div>
       </Form>
     </Card>
