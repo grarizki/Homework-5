@@ -13,7 +13,7 @@ import {
 } from "antd"
 import moment from "moment"
 
-import NavbarComponent from "../../components/navbarCustomer/NavbarComponent"
+import NavbarComponent from "../../components/navbarAgent/NavbarAgentComp"
 import { useAuthorizedContext } from "../../AuthorizedContext"
 import useGetTransaction from "../../Query/useGetTransaction"
 import useDeleteTransaction from "../../Mutations/useDeleteTransaction"
