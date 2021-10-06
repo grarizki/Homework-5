@@ -121,7 +121,7 @@ const CardTransactionComponent = (props) => {
                 style={{
                   margin: "0px",
                   paddingRight: "15px",
-                  backgroundColor: "#84ed50",
+                  backgroundColor: "#4fc314",
                   fontWeight: "bold",
                   borderRadius: "10px",
                 }}
